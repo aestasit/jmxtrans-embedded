@@ -1,0 +1,28 @@
+
+apply plugin: 'war'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'project-report'
+apply plugin: 'jetty'
+
+group = 'com.aestasit.monitoring.jmx'
+version = '0.1'
+
+repositories {
+  mavenCentral()
+  maven { url "http://repo.springsource.org/release" }
+  maven { url "http://repo.typesafe.com/typesafe/repo/" }
+}
+
+dependencies {
+  compile 'org.jmxtrans.embedded:embedded-jmxtrans:1.0.9'
+  compile('org.springframework:spring-context:4.0.3.RELEASE') {
+    exclude module: 'commons-logging'
+  }
+  compile 'org.springframework:spring-webmvc:4.0.3.RELEASE'
+  compile 'org.aspectj:aspectjrt:1.8.0'
+  compile 'org.slf4j:slf4j-api:1.7.7'
+  compile 'org.slf4j:jcl-over-slf4j:1.7.7'
+  compile 'ch.qos.logback:logback-classic:1.0.9'
+  compile 'com.google.code.findbugs:jsr305:2.0.1'
+}
